@@ -76,3 +76,30 @@ function encode(plainText: string): string {
 // console.log(
 //   encode('sdcsdcsdcsdcsdcsdcsdcsdcsdcddddcccccsdcsdcsdcsdccdsscddbnkj')
 // );
+
+function binarySearch(
+  numbers: number[],
+  target: number,
+  left: number,
+  rigth: number
+): number {
+  if (rigth >= left) {
+    let mid = left + (rigth - left) / 2;
+    mid = Math.trunc(mid);
+
+    if (numbers[mid] === target) {
+      return mid;
+    }
+
+    if (numbers[mid] > target) {
+      return binarySearch(numbers, target, left, mid - 1);
+    }
+
+    return binarySearch(numbers, target, mid + 1, rigth);
+  }
+
+  return -1;
+}
+
+const numbersTest = [0, 0.1, 0.002, 3, 4, 5, 6, 7, 80, 90, 100, 1000];
+console.log(binarySearch(numbersTest, 0.002, 0, numbersTest.length - 1));
