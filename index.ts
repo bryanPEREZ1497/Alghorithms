@@ -69,10 +69,10 @@ function encode(plainText: string): string {
   return results.join('');
 }
 
-console.log(encode('aa'));
-console.log(encode('aabbaa'));
-console.log(encode('aabbcbaaa'));
-console.log(encode('bnkj'));
-console.log(
-  encode('sdcsdcsdcsdcsdcsdcsdcsdcsdcddddcccccsdcsdcsdcsdccdsscddbnkj')
-);
+// console.log(encode('aa'));
+// console.log(encode('aabbaa'));
+// console.log(encode('aabbcbaaa'));
+// console.log(encode('bnkj'));
+// console.log(
+//   encode('sdcsdcsdcsdcsdcsdcsdcsdcsdcddddcccccsdcsdcsdcsdccdsscddbnkj')
+// );
