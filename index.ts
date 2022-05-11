@@ -127,6 +127,16 @@ function bombDetector(numbers: number[], bomb: number): boolean {
  */
 function searchInsert(nums: number[], target: number): number {
   let index = binarySearch(nums, target, 0, nums.length - 1);
-  
-  return -1;
+  if (index === -1) {
+    for (let i = 0; i < nums.length; i++) {
+      if (target < nums[i]) {
+        return i;
+      }
+    }
+    return nums.length;
+  }
+  return index;
 }
+
+// console.log(searchInsert([1, 3, 5, 6], 3));
+console.log(searchInsert([1, 3, 5, 6], 5.5));
