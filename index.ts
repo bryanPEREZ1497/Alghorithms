@@ -144,9 +144,9 @@ function searchInsert(nums: number[], target: number): number {
 /**
  Do not return anything, modify nums in-place instead.
  */
-let numbers: number[] = [0, 1, 0, 3, 12];
-let test: number[] = [0, 1, 0, 0, 3, 0, 12];
-let test1: number[] = [0, 1, 0, 3, 12, 0, 2, 32];
+// let numbers: number[] = [0, 1, 0, 3, 12];
+// let test: number[] = [0, 1, 0, 0, 3, 0, 12];
+// let test1: number[] = [0, 1, 0, 3, 12, 0, 2, 32];
 
 function moveZeroes(nums: number[]): void {
   let temp = 0;
@@ -185,12 +185,14 @@ let s = ['h', 'e', 'l', 'l', 'o'];
 let s1 = ['H', 'a', 'n', 'n', 'a', 'h'];
 function reverseString(s: string[]): void {
   let right = 0;
-  let left = 0;
+  let left = s.length - 1;
 
   while (right <= s.length) {
     let temp = s[right];
     s[left] = s[right];
     s[right] = temp;
+    left--;
+    right++;
   }
 }
 
