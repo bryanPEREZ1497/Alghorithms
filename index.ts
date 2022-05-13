@@ -139,4 +139,41 @@ function searchInsert(nums: number[], target: number): number {
 }
 
 // console.log(searchInsert([1, 3, 5, 6], 3));
-console.log(searchInsert([1, 3, 5, 6], 5.5));
+// console.log(searchInsert([1, 3, 5, 6], 5.5));
+
+/**
+ Do not return anything, modify nums in-place instead.
+ */
+let numbers: number[] = [0, 1, 0, 3, 12];
+let test: number[] = [0, 1, 0, 0, 3, 0, 12];
+let test1: number[] = [0, 1, 0, 3, 12, 0, 2, 32];
+
+function moveZeroes(nums: number[]): void {
+  let temp = 0;
+  let right = 0;
+  let left = 0;
+
+  while (right < nums.length) {
+    if (nums[right] === 0) {
+      right++;
+    } else {
+      temp = nums[left];
+      nums[left] = nums[right];
+      nums[right] = temp;
+      left++;
+      right++;
+    }
+  }
+}
+
+console.log('last', numbers);
+moveZeroes(numbers);
+console.log('now', numbers);
+//---------------------------
+console.log('last', test);
+moveZeroes(numbers);
+console.log('now', test);
+//---------------------------
+console.log('last', test1);
+moveZeroes(numbers);
+console.log('now', test1);
