@@ -218,7 +218,7 @@ function rotate(nums: number[], k: number): void {
   let temp = 0;
   let count = 1;
 
-  while (count <= 3) {
+  while (count <= k) {
     temp = nums.pop();
     nums.unshift(temp);
     count++;
@@ -234,5 +234,5 @@ console.log('now', nums);
 const nums2 = [-1, -100, 3, 99],
   k2 = 2;
 console.log('last', nums2);
-rotate(nums2, k2);
+// rotate(nums2, k2);
 console.log('now', nums2);
