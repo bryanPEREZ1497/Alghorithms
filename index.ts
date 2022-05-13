@@ -233,6 +233,6 @@ console.log('now', nums);
 //----------------------------------*
 const nums2 = [-1, -100, 3, 99],
   k2 = 2;
-console.log('last', nums2);
+// console.log('last', nums2);
 // rotate(nums2, k2);
-console.log('now', nums2);
+// console.log('now', nums2);
