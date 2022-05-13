@@ -166,14 +166,39 @@ function moveZeroes(nums: number[]): void {
   }
 }
 
-console.log('last', numbers);
-moveZeroes(numbers);
-console.log('now', numbers);
+// console.log('last', numbers);
+// moveZeroes(numbers);
+// console.log('now', numbers);
 //---------------------------
-console.log('last', test);
-moveZeroes(test);
-console.log('now', test);
+// console.log('last', test);
+// moveZeroes(test);
+// console.log('now', test);
 //---------------------------
-console.log('last', test1);
-moveZeroes(test1);
-console.log('now', test1);
+// console.log('last', test1);
+// moveZeroes(test1);
+// console.log('now', test1);
+
+/**
+ Do not return anything, modify s in-place instead.
+ */
+let s = ['h', 'e', 'l', 'l', 'o'];
+let s1 = ['H', 'a', 'n', 'n', 'a', 'h'];
+function reverseString(s: string[]): void {
+  let right = 0;
+  let left = 0;
+
+  while (right <= s.length) {
+    let temp = s[right];
+    s[left] = s[right];
+    s[right] = temp;
+  }
+}
+
+// ---------------------------
+console.log('last', s);
+reverseString(s);
+console.log('now', s);
+// ---------------------------
+console.log('last', s1);
+reverseString(s1);
+console.log('now', s1);
