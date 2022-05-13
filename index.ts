@@ -171,9 +171,9 @@ moveZeroes(numbers);
 console.log('now', numbers);
 //---------------------------
 console.log('last', test);
-moveZeroes(numbers);
+moveZeroes(test);
 console.log('now', test);
 //---------------------------
 console.log('last', test1);
-moveZeroes(numbers);
+moveZeroes(test1);
 console.log('now', test1);
