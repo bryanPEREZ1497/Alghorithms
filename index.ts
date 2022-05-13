@@ -220,7 +220,7 @@ function rotate(nums: number[], k: number): void {
 
   while (count <= 3) {
     temp = nums.pop();
-    nums.push(temp);
+    nums.unshift(temp);
     count++;
   }
 }
@@ -228,11 +228,11 @@ function rotate(nums: number[], k: number): void {
 const nums = [1, 2, 3, 4, 5, 6, 7],
   k = 3;
 console.log('last', nums);
-// rotate(nums, k);
+rotate(nums, k);
 console.log('now', nums);
 //----------------------------------*
 const nums2 = [-1, -100, 3, 99],
   k2 = 2;
 console.log('last', nums2);
-// rotate(nums2, k2);
+rotate(nums2, k2);
 console.log('now', nums2);
