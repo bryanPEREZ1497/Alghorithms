@@ -183,25 +183,30 @@ function moveZeroes(nums: number[]): void {
  */
 let s = ['h', 'e', 'l', 'l', 'o'];
 let s1 = ['H', 'a', 'n', 'n', 'a', 'h'];
+let s2 = ['h', 'o', 'l', 'a'];
 function reverseString(s: string[]): void {
-  let right = 0;
-  let left = s.length - 1;
+  let right = s.length - 1;
+  let left = 0;
   let temp = '';
 
-  while (right <= s.length / 2) {
-    temp = s[right];
+  while (left <= (s.length - 1) / 2) {
+    temp = s[left];
     s[left] = s[right];
     s[right] = temp;
-    left--;
-    right++;
+    left++;
+    right--;
   }
 }
 
 // ---------------------------
-console.log('last', s);
-reverseString(s);
-console.log('now', s);
+// console.log('last', s);
+// reverseString(s);
+// console.log('now', s);
 // ---------------------------
-console.log('last', s1);
-reverseString(s1);
-console.log('now', s1);
+// console.log('last', s1);
+// reverseString(s1);
+// console.log('now', s1);
+// ---------------------------
+// console.log('last', s2);
+// reverseString(s2);
+// console.log('now', s2);
