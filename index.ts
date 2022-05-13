@@ -186,9 +186,10 @@ let s1 = ['H', 'a', 'n', 'n', 'a', 'h'];
 function reverseString(s: string[]): void {
   let right = 0;
   let left = s.length - 1;
+  let temp = '';
 
-  while (right <= s.length) {
-    let temp = s[right];
+  while (right <= s.length / 2) {
+    temp = s[right];
     s[left] = s[right];
     s[right] = temp;
     left--;
