@@ -16,17 +16,15 @@ function countFrequencies(words: string[]): number[] {
 // console.log(countFrequencies(['let', 'let', 'let', 'zero', 'zero']));
 
 function filterWords(words: string[], letters: string): string[] {
-  const lettersRe = RegExp(letters);
-  const result = words.filter((word) => lettersRe.test(word));
-  words.filter((word) => {
-    console.log(lettersRe.test(word));
-    return lettersRe.test(word);
-  });
+  let regex = new RegExp(`[${letters}]`, 'g');
+
+  words = words.filter((word) => regex.test(word));
+
   return words;
 }
 
-// console.log(filterWords(['the', 'dog', 'got', 'a', 'bone'], 'ae'));
-// console.log(filterWords(['the', 'dog', 'got', 'a', 'bone'], 'e'))
+console.log(filterWords(['the', 'dog', 'got', 'a', 'bone'], 'ae')); // the, a , bone
+console.log(filterWords(['the', 'dog', 'got', 'a', 'bone'], 'e'));
 
 function computeMultiplesSum(n: number): number {
   if (n < 0 || n >= 1000) {
@@ -227,9 +225,9 @@ function rotate(nums: number[], k: number): void {
 
 const nums = [1, 2, 3, 4, 5, 6, 7],
   k = 3;
-console.log('last', nums);
-rotate(nums, k);
-console.log('now', nums);
+// console.log('last', nums);
+// rotate(nums, k);
+// console.log('now', nums);
 //----------------------------------*
 const nums2 = [-1, -100, 3, 99],
   k2 = 2;
