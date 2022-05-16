@@ -23,26 +23,8 @@ function filterWords(words: string[], letters: string): string[] {
   return words;
 }
 
-console.log(filterWords(['the', 'dog', 'got', 'a', 'bone'], 'ae')); // the, a , bone
-console.log(filterWords(['the', 'dog', 'got', 'a', 'bone'], 'e'));
-
-function computeMultiplesSum(n: number): number {
-  if (n < 0 || n >= 1000) {
-    return -1;
-  }
-
-  let sum = 0;
-
-  for (let i = 3; i <= n; i++) {
-    if (i % 3 === 0 || i % 5 === 0 || i % 7 === 0) {
-      sum += i;
-    }
-  }
-  return sum;
-}
-
-// console.log(computeMultiplesSum(11));
-// console.log(computeMultiplesSum(999));
+// console.log(filterWords(['the', 'dog', 'got', 'a', 'bone'], 'ae')); // the, a , bone
+// console.log(filterWords(['the', 'dog', 'got', 'a', 'bone'], 'e'));
 
 function encode(plainText: string): string {
   if (plainText.length === 0) {
@@ -234,3 +216,40 @@ const nums2 = [-1, -100, 3, 99],
 // console.log('last', nums2);
 // rotate(nums2, k2);
 // console.log('now', nums2);
+
+// Input: s1 = "ab", s2 = "eidbaooo"
+// Output: true
+// Explanation: s2 contains one permutation of s1 ("ba").
+
+// Input: s1 = "ab", s2 = "eidboaoo"
+// Output: false
+function checkInclusion(s1: string, s2: string): boolean {
+  const htable1 = {};
+  const htable2 = {};
+
+  for (let i = 0; i < s1.length; i++) {
+    if (!htable1[s1[i]]) {
+      htable1[s1[i]] = 0;
+    }
+    htable1[s1[i]]++;
+  }
+
+  for (let i = 0; i < s2.length; i++) {
+    if (!htable2[s2[i]]) {
+      htable2[s2[i]] = 0;
+    }
+    htable2[s2[i]]++;
+  }
+
+  for (let prop in htable1) {
+    console.log(htable1[prop], htable2[prop]);
+
+    if (htable1[prop] !== htable2[prop]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log('checkInclusion', checkInclusion('ab', 'eidbooo'));
