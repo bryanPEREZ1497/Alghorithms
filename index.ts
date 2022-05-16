@@ -224,6 +224,7 @@ const nums2 = [-1, -100, 3, 99],
 // Input: s1 = "ab", s2 = "eidboaoo"
 // Output: false
 function checkInclusion(s1: string, s2: string): boolean {
+  /**Esta mal, en s2 el las letras deben it juntas */
   const htable1 = {};
   const htable2 = {};
 
