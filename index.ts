@@ -224,7 +224,7 @@ const nums2 = [-1, -100, 3, 99],
 // Input: s1 = "ab", s2 = "eidboaoo"
 // Output: false
 function checkInclusion(s1: string, s2: string): boolean {
-  /**Esta mal, en s2 el las letras deben it juntas */
+  /**Esta mal, en s2 las letras deben it juntas */
   const htable1 = {};
   const htable2 = {};
 
@@ -255,7 +255,7 @@ function checkInclusion(s1: string, s2: string): boolean {
 
 // console.log('checkInclusion', checkInclusion('ab', 'eidbooo'));
 
-function subArraySums(nums: number[], k: number): number[] {
+function subArraySumsByStep(nums: number[], k: number): number[] {
   const result: number[] = [];
 
   let currentSubArray = nums.slice(0, k).reduce((a, b) => a + b, 0);
@@ -271,4 +271,16 @@ function subArraySums(nums: number[], k: number): number[] {
   return result;
 }
 
-console.log(`Sum of 3 by 3`, subArraySums([1, 2, 3, 4, 5], 3));
+// console.log(`Sum of 3 by 3`, subArraySums([1, 2, 3, 4, 5], 3));
+// console.log(`Sum of 4 by 4`, subArraySums([1, 2, 3, 4, 5], 4));
+
+
+// Input: nums = [1,1,1], k = 2
+// Output: 2
+
+// Input: nums = [1,2,3], k = 3
+// Output: 2
+function subarraySum(nums: number[], k: number): number {
+  
+  return 0;
+};
