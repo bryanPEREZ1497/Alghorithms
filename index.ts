@@ -253,4 +253,22 @@ function checkInclusion(s1: string, s2: string): boolean {
   return true;
 }
 
-console.log('checkInclusion', checkInclusion('ab', 'eidbooo'));
+// console.log('checkInclusion', checkInclusion('ab', 'eidbooo'));
+
+function subArraySums(nums: number[], k: number): number[] {
+  const result: number[] = [];
+
+  let currentSubArray = nums.slice(0, k).reduce((a, b) => a + b, 0);
+  result.push(currentSubArray);
+
+  for (let i = 1; i < nums.length - k + 1; i++) {
+    currentSubArray -= nums[i - 1];
+    currentSubArray += nums[i + k - 1];
+
+    result.push(currentSubArray);
+  }
+
+  return result;
+}
+
+console.log(`Sum of 3 by 3`, subArraySums([1, 2, 3, 4, 5], 3));
