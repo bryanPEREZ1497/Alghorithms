@@ -274,13 +274,35 @@ function subArraySumsByStep(nums: number[], k: number): number[] {
 // console.log(`Sum of 3 by 3`, subArraySums([1, 2, 3, 4, 5], 3));
 // console.log(`Sum of 4 by 4`, subArraySums([1, 2, 3, 4, 5], 4));
 
-
 // Input: nums = [1,1,1], k = 2
 // Output: 2
 
 // Input: nums = [1,2,3], k = 3
 // Output: 2
 function subarraySum(nums: number[], k: number): number {
-  
   return 0;
-};
+}
+
+function complexSlidingWindow(arr: number[], x: number) {
+  let minLength = Number();
+  let start,
+    end,
+    currentSum = 0;
+
+  while (end < arr.length) {
+    currentSum += arr[end];
+    end++;
+
+    while (currentSum >= x) {
+      currentSum -= arr[start];
+      start++;
+
+      minLength = Math.min(minLength, end - start + 1);
+      console.log(minLength);
+    }
+  }
+  console.log('complexSlidingWindow', minLength);
+  // return minLength;
+}
+
+complexSlidingWindow([1, 2, 3, 4, 5, 6], 7);
