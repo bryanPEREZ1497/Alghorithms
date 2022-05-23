@@ -223,7 +223,7 @@ const nums2 = [-1, -100, 3, 99],
 
 // Input: s1 = "ab", s2 = "eidboaoo"
 // Output: false
-function checkInclusion(s1: string, s2: string): boolean {
+function checkInclusionFake(s1: string, s2: string): boolean {
   /**Esta mal, en s2 las letras deben it juntas */
   const htable1 = {};
   const htable2 = {};
@@ -254,6 +254,8 @@ function checkInclusion(s1: string, s2: string): boolean {
 }
 
 // console.log('checkInclusion', checkInclusion('ab', 'eidbooo'));
+
+//simple sliding window
 
 function subArraySumsByStep(nums: number[], k: number): number[] {
   const result: number[] = [];
@@ -308,5 +310,27 @@ function complexSlidingWindow(arr: number[], x: number) {
   // return minLength;
 }
 
-complexSlidingWindow([1, 2, 3, 4, 5, 6, 7], 7);
-complexSlidingWindow([1, 6], 7);
+// complexSlidingWindow([1, 2, 3, 4, 5, 6, 7], 7);
+// complexSlidingWindow([1, 6], 7);
+
+function checkInclusion(s1: string, s2: string): boolean {
+  const currentSubArray = s1.slice(0, s1.length);
+  const htable1 = {};
+  const htable2 = {};
+
+  for (let i = 0; i < s1.length; i++) {
+    if (!htable1[s1[i]]) {
+      htable1[s1[i]] = 0;
+    }
+    htable1[s1[i]]++;
+  }
+
+  for (let i = 0; i < s2.length; i++) {
+    if (!htable2[s2[i]]) {
+      htable2[s2[i]] = 0;
+    }
+    htable2[s2[i]]++;
+  }
+
+  return false;
+}
