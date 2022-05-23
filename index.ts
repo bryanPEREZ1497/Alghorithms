@@ -284,9 +284,9 @@ function subarraySum(nums: number[], k: number): number {
 }
 
 function complexSlidingWindow(arr: number[], x: number) {
-  let minLength = Number();
-  let start,
-    end,
+  let minLength: number = 0;
+  let start = 0,
+    end = 0,
     currentSum = 0;
 
   while (end < arr.length) {
@@ -297,12 +297,16 @@ function complexSlidingWindow(arr: number[], x: number) {
       currentSum -= arr[start];
       start++;
 
-      minLength = Math.min(minLength, end - start + 1);
-      console.log(minLength);
+      minLength = end - start + 1;
+
+      if (end - start + 1 < minLength) {
+        minLength = end - start + 1;
+      }
     }
   }
   console.log('complexSlidingWindow', minLength);
   // return minLength;
 }
 
-complexSlidingWindow([1, 2, 3, 4, 5, 6], 7);
+complexSlidingWindow([1, 2, 3, 4, 5, 6, 7], 7);
+complexSlidingWindow([1, 6], 7);
