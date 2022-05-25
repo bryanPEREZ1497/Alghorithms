@@ -334,3 +334,34 @@ function checkInclusion(s1: string, s2: string): boolean {
 
   return false;
 }
+
+// 3. Longest Substring Without Repeating Characters
+
+// Given a string s, find the length of the longest substring without repeating characters.
+
+// bacabcbb
+
+function lengthOfLongestSubstring(s: string): number {
+  let length = 0,
+    start = 0,
+    end = 0;
+
+  const dictionary: {} = {};
+
+  while (end < s.length) {
+    if (!dictionary[s[end]]) dictionary[s[end]] = 0;
+    dictionary[s[end]]++;
+    if (Math.max(Object.values(dictionary)) === 1) {
+      end++;
+      length = Object.values(dictionary).length;
+    } else {
+      while (Math.max(Object.values(dictionary)) !== 1) {
+        dictionary[s[start]]--;
+        start++;
+      }
+    }
+  }
+
+  return length;
+}
+console.log('Length', lengthOfLongestSubstring('bacabcbb'));
