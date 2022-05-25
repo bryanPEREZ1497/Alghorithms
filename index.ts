@@ -413,7 +413,7 @@ function middleNode(head: ListNode | null): ListNode | null {
 //   new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))
 // );
 
-// console.log(middleNode(listNode));
+console.log(middleNode(byRecursion(100)));
 
 function byRecursion(n: number) {
   if (n > 0) {
@@ -422,5 +422,8 @@ function byRecursion(n: number) {
   return;
 }
 
-const listNodoByRecursion = byRecursion(5);
-console.log('list', listNodoByRecursion);
+// console.log('list', byRecursion(5));
+// console.log('list', byRecursion(6));
+// console.log('list', byRecursion(7));
+// console.log('list', byRecursion(8));
+// console.log('list', byRecursion(100));
