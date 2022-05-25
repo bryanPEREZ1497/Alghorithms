@@ -368,8 +368,8 @@ function lengthOfLongestSubstring(s) {
   return length;
 }
 
-console.log('Length', lengthOfLongestSubstring('pwwkew'));
-console.log('Length', lengthOfLongestSubstring('abcdfd'));
+// console.log('Length', lengthOfLongestSubstring('pwwkew'));
+// console.log('Length', lengthOfLongestSubstring('abcdfd'));
 
 function getMaxOfArray(arr) {
   const max = arr.reduce(function (a, b) {
@@ -384,3 +384,43 @@ function getValues(obj) {
   });
   return values;
 }
+
+// Definition for singly-linked list.
+class ListNode {
+  val: number;
+  next: ListNode | null;
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+  }
+}
+
+function middleNode(head: ListNode | null): ListNode | null {
+  let slow = head;
+  let fast = head;
+
+  while (fast) {
+    if (!fast.next) break;
+    fast = fast.next.next;
+    slow = slow.next;
+  }
+
+  return slow;
+}
+
+// const listNode = new ListNode(
+//   1,
+//   new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))
+// );
+
+// console.log(middleNode(listNode));
+
+function byRecursion(n: number) {
+  if (n > 0) {
+    return new ListNode(n, byRecursion(n - 1));
+  }
+  return;
+}
+
+const listNodoByRecursion = byRecursion(5);
+console.log('list', listNodoByRecursion);
