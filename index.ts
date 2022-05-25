@@ -346,16 +346,16 @@ function lengthOfLongestSubstring(s: string): number {
     start = 0,
     end = 0;
 
-  const dictionary: {} = {};
+  const dictionary: { [key: string]: number } = {};
 
   while (end < s.length) {
     if (!dictionary[s[end]]) dictionary[s[end]] = 0;
     dictionary[s[end]]++;
-    if (Math.max(Object.values(dictionary)) === 1) {
+    if (Math.max(getMaxOfArray(Object.values(dictionary))) === 1) {
       end++;
       length = Object.values(dictionary).length;
     } else {
-      while (Math.max(Object.values(dictionary)) !== 1) {
+      while (Math.max(getMaxOfArray(Object.values(dictionary))) !== 1) {
         dictionary[s[start]]--;
         start++;
       }
@@ -365,3 +365,10 @@ function lengthOfLongestSubstring(s: string): number {
   return length;
 }
 console.log('Length', lengthOfLongestSubstring('bacabcbb'));
+
+function getMaxOfArray(arr) {
+  const max = arr.reduce(function (a, b) {
+    return Math.max(a, b);
+  }, -Infinity);
+  return max;
+}
