@@ -341,35 +341,46 @@ function checkInclusion(s1: string, s2: string): boolean {
 
 // bacabcbb
 
-function lengthOfLongestSubstring(s: string): number {
+function lengthOfLongestSubstring(s) {
   let length = 0,
     start = 0,
     end = 0;
 
-  const dictionary: { [key: string]: number } = {};
+  const dictionary = {};
 
   while (end < s.length) {
-    if (!dictionary[s[end]]) dictionary[s[end]] = 0;
-    dictionary[s[end]]++;
-    if (Math.max(getMaxOfArray(Object.values(dictionary))) === 1) {
-      end++;
-      length = Object.values(dictionary).length;
-    } else {
-      while (Math.max(getMaxOfArray(Object.values(dictionary))) !== 1) {
-        dictionary[s[start]]--;
-        start++;
-      }
+    if (!dictionary[s[end]]) dictionary[s[end]] = 1;
+    else dictionary[s[end]]++;
+    if (
+      Math.max(getMaxOfArray(getValues(dictionary))) < 2 &&
+      end - start + 1 > length
+    )
+      length = end - start + 1;
+
+    end++;
+
+    while (Math.max(getMaxOfArray(getValues(dictionary))) > 1 && end >= start) {
+      dictionary[s[start]]--;
+      start++;
     }
   }
 
   return length;
 }
-// console.log('Length', lengthOfLongestSubstring('bacabcbb'));
-console.log('Length');
+
+console.log('Length', lengthOfLongestSubstring('pwwkew'));
+console.log('Length', lengthOfLongestSubstring('abcdfd'));
 
 function getMaxOfArray(arr) {
   const max = arr.reduce(function (a, b) {
     return Math.max(a, b);
   }, -Infinity);
   return max;
+}
+
+function getValues(obj) {
+  const values = Object.keys(obj).map(function (e) {
+    return obj[e];
+  });
+  return values;
 }
