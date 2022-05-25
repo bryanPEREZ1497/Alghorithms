@@ -364,7 +364,8 @@ function lengthOfLongestSubstring(s: string): number {
 
   return length;
 }
-console.log('Length', lengthOfLongestSubstring('bacabcbb'));
+// console.log('Length', lengthOfLongestSubstring('bacabcbb'));
+console.log('Length');
 
 function getMaxOfArray(arr) {
   const max = arr.reduce(function (a, b) {
