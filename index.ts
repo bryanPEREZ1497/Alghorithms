@@ -427,3 +427,67 @@ function byRecursion(n: number) {
 // console.log('list', byRecursion(7));
 // console.log('list', byRecursion(8));
 // console.log('list', byRecursion(2888));
+
+function sumar(x: number) {
+  const cl = function (y: number) {
+    return x + y;
+  };
+
+  return cl;
+}
+// console.log(sumar(4)(3));
+
+function iniciar() {
+  const name = 'Bryan';
+
+  function mostrarNombre() {
+    alert(name);
+  }
+  mostrarNombre();
+}
+// iniciar();
+
+function floodFill(
+  image: number[][],
+  sr: number,
+  sc: number,
+  newColor: number
+): number[][] {
+  const oldColor = image[sr][sc];
+  fill(image, sr, sc, newColor, oldColor);
+  return image;
+}
+
+function fill(
+  image: string | any[],
+  sr: number,
+  sc: number,
+  newColor: number,
+  oldColor: number
+) {
+  if (image[sr][sc] === oldColor) {
+    image[sr][sc] = newColor;
+    //top
+    if (sr >= 1) fill(image, sr - 1, sc, newColor, oldColor);
+    // bottom
+    if (sr + 1 < image.length) fill(image, sr + 1, sc, newColor, oldColor);
+    // left
+    if (sc >= 1) fill(image, sr, sc - 1, newColor, oldColor);
+    // right
+    if (sc + 1 < image[0].length) fill(image, sr, sc + 1, newColor, oldColor);
+  }
+}
+
+console.log(
+  '?',
+  floodFill(
+    [
+      [1, 1, 1],
+      [1, 1, 0],
+      [1, 0, 1],
+    ],
+    2,
+    2,
+    3
+  )
+);
