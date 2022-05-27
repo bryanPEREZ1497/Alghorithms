@@ -478,16 +478,78 @@ function fill(
   }
 }
 
+// console.log(
+//   'FF',
+//   floodFill(
+//     [
+//       [1, 1, 1],
+//       [1, 1, 0],
+//       [1, 0, 1],
+//     ],
+//     2,
+//     2,
+//     3
+//   )
+// );
+
+// console.log(eval('5+5-1-3'))
+
+//  Definition for a binary tree node.
+class TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+  }
+}
+
+function mergeTrees(
+  root1: TreeNode | null,
+  root2: TreeNode | null
+): TreeNode | null {
+  if (!root1 && !root2) {
+    return;
+  }
+
+  if (root1) {
+    var val1 = root1.val ? root1.val : 0;
+  }
+  if (root2) {
+    var val2 = root2.val ? root2.val : 0;
+  }
+
+  const root = new TreeNode(val1 + val2);
+
+  if (root1.left || root2.left) {
+    root1.left ? root1.left : null;
+    root2.left ? root2.left : null;
+
+    root.left = mergeTrees(root1.left, root2.left);
+  }
+  if (root1.right || root2.right) {
+    root1.right ? root1.right : null;
+    root2.right ? root2.right : null;
+
+    root.right = mergeTrees(root1.right, root2.right);
+  }
+
+  return root;
+}
+
 console.log(
-  'FF',
-  floodFill(
-    [
-      [1, 1, 1],
-      [1, 1, 0],
-      [1, 0, 1],
-    ],
-    2,
-    2,
-    3
-  )
+  'tree node',
+  mergeTrees(treeNodesbyRecursion(10), treeNodesbyRecursion(10))
 );
+
+function treeNodesbyRecursion(n: number) {
+  const root = new TreeNode();
+  if (n >= 0) {
+    root.val = n;
+    root.left = treeNodesbyRecursion(n - 1);
+    root.right = treeNodesbyRecursion(n - 1);
+  }
+  return root;
+}
