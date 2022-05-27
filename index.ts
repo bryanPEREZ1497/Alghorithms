@@ -479,7 +479,7 @@ function fill(
 }
 
 console.log(
-  '?',
+  'FF',
   floodFill(
     [
       [1, 1, 1],
