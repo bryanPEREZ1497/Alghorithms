@@ -553,3 +553,5 @@ function treeNodesbyRecursion(n: number) {
   }
   return root;
 }
+
+function orangesRotting(grid: number[][]): number {}
