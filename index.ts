@@ -377,6 +377,12 @@ function getMaxOfArray(arr) {
   }, -Infinity);
   return max;
 }
+function getMinOfArray(arr: number[]) {
+  const min: number = arr.reduce(function (a, b) {
+    return Math.min(a, b);
+  }, -Infinity);
+  return min;
+}
 
 function getValues(obj) {
   const values = Object.keys(obj).map(function (e) {
@@ -539,10 +545,10 @@ function mergeTrees(
   return root;
 }
 
-console.log(
-  'tree node',
-  mergeTrees(treeNodesbyRecursion(10), treeNodesbyRecursion(10))
-);
+// console.log(
+//   'tree node',
+//   mergeTrees(treeNodesbyRecursion(10), treeNodesbyRecursion(10))
+// );
 
 function treeNodesbyRecursion(n: number) {
   const root = new TreeNode();
@@ -554,4 +560,37 @@ function treeNodesbyRecursion(n: number) {
   return root;
 }
 // https://leetcode.com/problems/rotting-oranges/
-function orangesRotting(grid: number[][]): number {}
+// function orangesRotting(grid: number[][]): number {}
+
+// Given two strings a and b, both consisting only of lowercase English letters, your task is to calculate how many strings equal to a can be constructed using only letters from the string b? Each letter can be used only once and in one string only.
+
+function solucion(a: string, b: string) {
+  const stringA = {};
+  const stringB = {};
+  let times = [];
+
+  for (let letter of a) {
+    if (stringA[letter]) {
+      stringA[letter]++;
+    } else {
+      stringA[letter] = 1;
+    }
+  }
+
+  for (let letter of b) {
+    if (stringB[letter]) {
+      stringB[letter]++;
+    } else {
+      stringB[letter] = 1;
+    }
+  }
+
+  for (let letter in stringB) {
+    times.push(Math.trunc(stringB[letter] / stringA[letter]));
+  }
+
+  return times.reduce((prev, curr) => Math.min(prev, curr));
+}
+
+console.log(solucion('abcc', 'aaabbbccc')); //1
+console.log(solucion('abcc', 'aaabbbcccc')); //2
